@@ -64,6 +64,10 @@ public class MainFrame extends javax.swing.JFrame {
         
         viewDetails.setEnabled(false);
         
+        //Modal center
+        showRecordsModal.setLocationRelativeTo(null);
+        popupmodal.setLocationRelativeTo(null);
+        
         enableButton();
         date_today.setEditable(false);
         id_field.setEditable(false);
@@ -277,6 +281,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         showRecordsModal.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         showRecordsModal.setTitle("Patient Records");
+        showRecordsModal.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        showRecordsModal.setLocation(new java.awt.Point(0, 0));
         showRecordsModal.setSize(new java.awt.Dimension(450, 300));
 
         jLabel15.setText("Some Records Here");
@@ -1076,6 +1082,7 @@ public class MainFrame extends javax.swing.JFrame {
     
     private void viewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDetailsActionPerformed
        if(this.selectedrow > -1){
+           
            showRecordsModal.setVisible(true);
        }
        else{
