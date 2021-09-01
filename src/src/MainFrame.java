@@ -99,6 +99,19 @@ public class MainFrame extends javax.swing.JFrame {
         showRecordsModal = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        listselectedSymptoms = new javax.swing.JList<>();
+        jLabel19 = new javax.swing.JLabel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        listPosibleDisease = new javax.swing.JList<>();
+        owner_label = new javax.swing.JLabel();
+        patient_label = new javax.swing.JLabel();
+        breed_label = new javax.swing.JLabel();
+        date_label = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
         mainPanel = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -283,25 +296,88 @@ public class MainFrame extends javax.swing.JFrame {
         showRecordsModal.setTitle("Patient Records");
         showRecordsModal.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         showRecordsModal.setLocation(new java.awt.Point(0, 0));
-        showRecordsModal.setSize(new java.awt.Dimension(450, 300));
+        showRecordsModal.setSize(new java.awt.Dimension(450, 370));
 
-        jLabel15.setText("Some Records Here");
+        jLabel15.setText("Owner Name:");
+
+        jLabel16.setText("Patient Name:");
+
+        jLabel17.setText("Breed:");
+
+        jLabel18.setText("Selected Symptoms:");
+
+        jScrollPane7.setViewportView(listselectedSymptoms);
+
+        jLabel19.setText("Diagnosed closest posible disease:");
+
+        jScrollPane8.setViewportView(listPosibleDisease);
+
+        jLabel20.setText("Date: ");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(235, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
+                    .addComponent(jScrollPane8)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(breed_label, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE))
+                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(owner_label, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel20))
+                                    .addComponent(patient_label, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(date_label, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(218, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
+                            .addComponent(owner_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(date_label, javax.swing.GroupLayout.DEFAULT_SIZE, 16, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel16)
+                    .addComponent(patient_label, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
+                    .addComponent(breed_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout showRecordsModalLayout = new javax.swing.GroupLayout(showRecordsModal.getContentPane());
@@ -885,6 +961,24 @@ public class MainFrame extends javax.swing.JFrame {
         
         listposibledisease.setModel(model);
     }
+    //Add new method to show list of selected symptoms on view records modal
+    public void showSymptomList(ArrayList<String> list){
+        int num = list.size();
+        DefaultListModel model = new DefaultListModel();
+        for(int i = 0; i < num ; i++){
+            model.addElement(list.get(i));
+        }
+        listselectedSymptoms.setModel(model);
+    }
+    public void showDiseaseList(ArrayList<String> list){
+        int num = list.size();
+        DefaultListModel model = new DefaultListModel();
+        for(int i = 0; i < num ; i++){
+            model.addElement(list.get(i));
+        }
+        listPosibleDisease.setModel(model);
+    }
+    
     public void showPopUpMessage(String msg){
         //JOptionPane modal = new JOptionPane();
         JOptionPane.showMessageDialog(null,msg);
@@ -1081,9 +1175,22 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_tableListPatientsMouseClicked
     
     private void viewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDetailsActionPerformed
-       if(this.selectedrow > -1){
-           
+       if(this.selectedrow > -1 && !"".equals(id_field.getText()) && !"".equals(date_field.getText())){
            showRecordsModal.setVisible(true);
+           QueriesFilterSearch qfs = new QueriesFilterSearch();
+           qfs.showHistoryDetails(date_field.getText(), Integer.parseInt( id_field.getText() ));
+           
+           ArrayList<String> list = new ArrayList<>(qfs.getPersonInfos());
+           
+           for(int i = 0 ; i < list.size() ; i++){
+               owner_label.setText("<html><u>"+list.get(0)+"</u></html>");
+               patient_label.setText("<html><u>"+list.get(1)+"</u></html>");
+               breed_label.setText("<html><u>"+list.get(2)+"</u></html>");
+               date_label.setText("<html><u>"+list.get(3)+"</u></html>");
+           }
+           
+           showDiseaseList(qfs.getDiseaseListRecords());
+           showSymptomList(qfs.getSymptomsListRecords());
        }
        else{
            showPopUpMessage("Please select patient row");
@@ -1394,11 +1501,13 @@ public class MainFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup PatientListGroup;
+    private javax.swing.JLabel breed_label;
     private javax.swing.JTextArea causetextarea;
     private javax.swing.JPanel checkbox_patientlist_Panel;
     private javax.swing.JLabel clockLabel;
     private com.toedter.calendar.JDateChooser dateTo;
     private javax.swing.JTextField date_field;
+    private javax.swing.JLabel date_label;
     private javax.swing.JTextField date_today;
     private javax.swing.JTextArea descriptiontextarea;
     private javax.swing.JButton diagnoseDiseaseBTN;
@@ -1419,7 +1528,12 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1444,13 +1558,19 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JLayeredPane layerPanels;
+    private javax.swing.JList<String> listPosibleDisease;
     private javax.swing.JList<String> listposibledisease;
+    private javax.swing.JList<String> listselectedSymptoms;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel moreinformationonline;
     private javax.swing.JTextField name_field;
+    private javax.swing.JLabel owner_label;
     private javax.swing.JTextField owners_name_field;
     private javax.swing.JPanel patient_info;
+    private javax.swing.JLabel patient_label;
     private javax.swing.JPanel patient_list_Panel;
     private javax.swing.JTextField patient_name;
     private javax.swing.JMenuItem patientlist_btn;

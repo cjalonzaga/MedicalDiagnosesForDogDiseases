@@ -10,8 +10,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -28,6 +30,10 @@ public class QueriesFilterSearch {
     private HashSet<Integer> ids = new HashSet<>();
     
     private HashMap<Integer , String> filtersearchdatas = new HashMap<>();
+    
+    private ArrayList<String> dlist;
+    private ArrayList<String> slist;
+    LinkedHashSet<String> hashlist;
     
     public void getFilterData(String from , String to){
         
@@ -213,25 +219,73 @@ public class QueriesFilterSearch {
     
     //Method to show individual patient records
     
-    public void showHistoryDetails(String name, int id){
+    public void showHistoryDetails(String date, int id){
         String conn = connect.getConnection();
         Connection driver;
+        
+        LinkedHashSet<String> hash = new LinkedHashSet<>();
+        ArrayList<String> diseaselist = new ArrayList<>();
+        ArrayList<String> symtomslist = new ArrayList<>();
         
         try {
             Class.forName("com.mysql.jdbc.Driver");
             
             driver = DriverManager.getConnection(conn, "root", "");
-            String query = "";
+            String query = "SELECT patient_infos.owners_name, patient_infos.patient_name, patient_infos.breed, diseases.dis_name, diagnose_disease.diagnose_date FROM diagnose_disease INNER JOIN patient_infos ON diagnose_disease.patient_id = patient_infos.patient_id INNER JOIN diseases ON diagnose_disease.disease_id = diseases.id WHERE patient_infos.patient_id = ? AND diagnose_disease.diagnose_date = ?";
+            String qry = "SELECT symptoms.sym_name FROM symptoms INNER JOIN symps_selected ON symptoms.id = symps_selected.symptoms_id WHERE symps_selected.patient_id = ? AND symps_selected.entry_date = ?";
             
             PreparedStatement stmt = driver.prepareStatement(query);
+            PreparedStatement stmt2 = driver.prepareStatement(qry);
+            
+            stmt.setString(1, id+"");
+            stmt.setString(2, date);
+            
+            stmt2.setString(1, id+"");
+            stmt2.setString(2, date);
             
             ResultSet sets = stmt.executeQuery();
+            ResultSet sets2 = stmt2.executeQuery();
             
-            stmt.close(); 
+            while(sets.next()){
+                hash.add(sets.getString(1));
+                hash.add(sets.getString(2));
+                hash.add(sets.getString(3));
+                hash.add(sets.getString(5));
+                diseaselist.add(sets.getString(4));
+            }
+            
+            while(sets2.next()){
+               symtomslist.add(sets2.getString(1));
+            }
+            
+            setPersonInfos(hash);
+            setDiseaseListRecords(diseaselist);
+            setSymptomsListRecords(symtomslist);
+            
+            stmt.close();
+            stmt2.close();
             
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(DataBaseQueries.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
+    public void setPersonInfos(LinkedHashSet<String> hash){
+        this.hashlist = hash;
+    }
+    public LinkedHashSet<String> getPersonInfos(){
+        return this.hashlist;
+    }
+    public void setDiseaseListRecords(ArrayList<String> d){
+        this.dlist = d;
+    }
+    public ArrayList<String> getDiseaseListRecords(){
+        return this.dlist;
+    }
+    public void setSymptomsListRecords(ArrayList<String> s){
+        this.slist = s;
+    }
+    public ArrayList<String> getSymptomsListRecords(){
+        return this.slist;
+    }
 }
