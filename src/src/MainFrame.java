@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.logging.Level;
@@ -1233,6 +1234,8 @@ public class MainFrame extends javax.swing.JFrame {
         date_field.setText("");
         searchField.setText("");
         viewDetails.setEnabled(false);
+        ((JTextField)fromDate.getDateEditor().getUiComponent()).setText("");
+        ((JTextField)dateTo.getDateEditor().getUiComponent()).setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
     
     public void refreshSelectedRow(){
