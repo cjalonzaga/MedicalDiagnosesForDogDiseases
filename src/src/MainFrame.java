@@ -712,6 +712,11 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel7.setText("From:");
 
         jButton1.setText("Clear");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("ID :");
@@ -1221,6 +1226,14 @@ public class MainFrame extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_viewRecordsActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        id_field.setText("");
+        name_field.setText("");
+        date_field.setText("");
+        searchField.setText("");
+        viewDetails.setEnabled(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     public void refreshSelectedRow(){
         
